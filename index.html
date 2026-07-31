@@ -1,0 +1,1159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        (function () {
+            try {
+                var saved = localStorage.getItem("portfolio-theme");
+                var wantsLight = saved === "light" || (!saved && window.matchMedia("(prefers-color-scheme: light)").matches);
+                if (wantsLight) document.documentElement.setAttribute("data-theme", "light");
+            } catch (e) {}
+        })();
+    </script>
+    <title>Tamim Munshi | Software Engineering Student &amp; Aspiring AI Engineer</title>
+    <meta name="description"
+        content="Portfolio of Mohammad Tamim Munshi Mubashir — Software Engineering student at Daffodil International University, focused on Artificial Intelligence, Machine Learning, Data Science and Web Development.">
+    <meta name="keywords" content="Tamim Munshi, AI Engineer, Machine Learning, Data Science, Software Engineer, Daffodil International University, Bangladesh Developer">
+    <meta name="author" content="Mohammad Tamim Munshi Mubashir">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://tamim-munshi.github.io/">
+    <meta name="theme-color" content="#0A0F0D" media="(prefers-color-scheme: dark)">
+    <meta name="theme-color" content="#F4F7F5" media="(prefers-color-scheme: light)">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Tamim Munshi | Software Engineering Student &amp; Aspiring AI Engineer">
+    <meta property="og:description" content="Software Engineering student at Daffodil International University, focused on AI, Machine Learning, Data Science and Web Development.">
+    <meta property="og:image" content="assets/images/profile.jpg">
+    <meta property="og:url" content="https://tamim-munshi.github.io/">
+    <meta property="og:site_name" content="Tamim Munshi Portfolio">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Tamim Munshi | Software Engineering Student &amp; Aspiring AI Engineer">
+    <meta name="twitter:description" content="Software Engineering student at Daffodil International University, focused on AI, Machine Learning, Data Science and Web Development.">
+    <meta name="twitter:image" content="assets/images/profile.jpg">
+
+    <!-- Structured Data: Person -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Mohammad Tamim Munshi Mubashir",
+        "jobTitle": "Software Engineering Student &amp; Aspiring AI Engineer",
+        "url": "https://tamim-munshi.github.io/",
+        "image": "assets/images/profile.jpg",
+        "email": "mailto:tamimmunshi262@gmail.com",
+        "sameAs": [
+            "https://github.com/Tamim-Munshi",
+            "https://www.linkedin.com/in/tamim-munshi-a33536306",
+            "https://www.facebook.com/tamim.munshi.169536",
+            "https://www.instagram.com/tamimmunshi262/"
+        ],
+        "alumniOf": {
+            "@type": "CollegeOrUniversity",
+            "name": "Daffodil International University"
+        },
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dhaka",
+            "addressCountry": "BD"
+        }
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="assets/images/logo.svg">
+    <link rel="apple-touch-icon" href="assets/images/logo.svg">
+    <link rel="manifest" href="manifest.json">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/ai-chat.css">
+</head>
+
+<body>
+
+<a href="#home" class="skip-link">Skip to main content</a>
+
+<div class="mesh-bg" aria-hidden="true"></div>
+
+
+<div id="loader" aria-hidden="true">
+    <div class="loader-ring">
+        <span class="loader-orbit"></span>
+        <svg class="ring-svg" viewBox="0 0 120 120">
+            <circle class="ring-track" cx="60" cy="60" r="52"></circle>
+            <circle class="ring-progress" cx="60" cy="60" r="52"></circle>
+        </svg>
+        <span class="loader-mark">TM</span>
+    </div>
+    <p class="loader-title">Mohammad Tamim Munshi Mubashir</p>
+    <p class="loader-tag">Loading Portfolio <span id="loaderPercent">0%</span></p>
+</div>
+
+<div id="progress-bar"></div>
+
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#home">
+            <img src="assets/images/logo.svg" alt="" class="brand-mark">
+            Tamim<span>.</span>
+        </a>
+        <div class="nav-right-mobile">
+            <button class="cmdk-trigger" id="cmdkTrigger" aria-label="Open command palette" type="button">
+                <i class="fas fa-magnifying-glass"></i>
+                <span class="cmdk-trigger-text">Search</span>
+                <span class="cmdk-trigger-keys"><kbd>Ctrl</kbd><kbd>K</kbd></span>
+            </button>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle light and dark mode">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+                <span class="toggle-knob"></span>
+            </button>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
+                <li class="nav-item"><a href="#news" class="nav-link">News</a></li>
+                <li class="nav-item dropdown nav-more">
+                    <a href="#expertise" class="nav-link dropdown-toggle" id="navMoreToggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">Expertise &amp; Journey</a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navMoreToggle">
+                        <li><a class="dropdown-item" href="#expertise" data-expertise-tab="why-me">Why Me</a></li>
+                        <li><a class="dropdown-item" href="#expertise" data-expertise-tab="skills">Skills</a></li>
+                        <li><a class="dropdown-item" href="#expertise" data-expertise-tab="experience">Experience</a></li>
+                        <li><a class="dropdown-item" href="#expertise" data-expertise-tab="education">Education</a></li>
+                        <li><a class="dropdown-item" href="#expertise" data-expertise-tab="certificates">Certificates</a></li>
+                        <li><a class="dropdown-item" href="#expertise" data-expertise-tab="achievements">Achievements</a></li>
+                        <li><a class="dropdown-item" href="#expertise" data-expertise-tab="resume">Resume</a></li>
+                    </ul>
+                </li>
+                <li class="nav-item"><a href="#projects" class="nav-link">Projects</a></li>
+                <li class="nav-item"><a href="#github" class="nav-link">GitHub</a></li>
+                <li class="nav-item"><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<section id="home">
+    <div class="hero-photo-bg" aria-hidden="true">
+        <img src="assets/images/profile.jpg" alt="" fetchpriority="high" decoding="async">
+    </div>
+    <div class="container">
+        <div class="hero-left">
+            <p class="hero-eyebrow"><span>HELLO, I'M</span><i></i></p>
+            <h1 class="hero-name">TAMIM<br><span class="hero-name-muted">MUNSHI</span></h1>
+            <p class="hero-role">Software Engineering Student · Aspiring AI Engineer</p>
+            <p class="hero-desc">
+                I'm passionate about Artificial Intelligence, Machine
+                Learning, Data Science and modern Web Development.
+                I enjoy building real-world applications and turning
+                what I learn into working projects.
+            </p>
+            <div class="hero-cta-row">
+                <a href="#projects" class="btn btn-primary btn-ripple hero-btn-primary">
+                    View My Work <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="assets/cv/Tamim_Munshi_CV.pdf" download="Tamim_Munshi_CV.pdf" class="btn btn-outline-light btn-ripple cv-download-link hero-cv-download">
+                    Download CV <i class="fas fa-download"></i>
+                </a>
+            </div>
+            <div class="social-links hero-social">
+                <a href="https://github.com/Tamim-Munshi" target="_blank" rel="noopener" aria-label="GitHub" class="social-gh"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/tamim-munshi-a33536306" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-li"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:tamimmunshi262@gmail.com" aria-label="Email" class="social-mail"><i class="fas fa-envelope"></i></a>
+                <a href="https://www.facebook.com/tamim.munshi.169536" target="_blank" rel="noopener" aria-label="Facebook" class="social-fb"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/tamimmunshi262/" target="_blank" rel="noopener" aria-label="Instagram" class="social-ig"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="news" class="section news-section">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Latest Updates</h2>
+            <p class="subtext">Real milestones from my actual work — written by me, not auto-generated</p>
+        </div>
+        <div class="news-timeline" id="newsTimeline">
+            <div class="news-item" data-aos="fade-up" data-aos-delay="0">
+                <div class="news-dot news-dot-blue"></div>
+                <div class="news-card news-card-logo">
+                    <div class="news-icon-wrap news-icon-blue"><i class="fas fa-trophy"></i></div>
+                    <div class="news-card-info">
+                        <span class="news-stage news-stage-blue">Participated</span>
+                        <h3>AI Innovation Hackathon 2026</h3>
+                        <p class="news-desc">Took part in the AI Innovation Hackathon at Daffodil International University, applying Machine Learning and problem-solving under time pressure.</p>
+                        <p class="news-meta"><i class="fas fa-calendar"></i> July 2026</p>
+                    </div>
+                </div>
+            </div>
+            <div class="news-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="news-dot news-dot-green"></div>
+                <div class="news-card news-card-logo">
+                    <div class="news-icon-wrap news-icon-green"><i class="fas fa-robot"></i></div>
+                    <div class="news-card-info">
+                        <span class="news-stage news-stage-green">Building</span>
+                        <h3>AI Marketplace Platform</h3>
+                        <p class="news-desc">Building an AI-powered marketplace that detects product condition, suggests categories, and recommends prices using Machine Learning.</p>
+                        <p class="news-meta"><i class="fas fa-calendar"></i> Personal Project</p>
+                    </div>
+                </div>
+            </div>
+            <div class="news-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="news-dot news-dot-blue"></div>
+                <div class="news-card news-card-logo">
+                    <div class="news-icon-wrap news-icon-blue"><i class="fas fa-users"></i></div>
+                    <div class="news-card-info">
+                        <span class="news-stage news-stage-blue">Role</span>
+                        <h3>Executive Member, DIU Software Engineering Club</h3>
+                        <p class="news-desc">Participating in technical events, workshops, hackathons and collaborative software development activities with the club.</p>
+                        <p class="news-meta"><i class="fas fa-calendar"></i> 2025 – Present</p>
+                    </div>
+                </div>
+            </div>
+            <div class="news-item" data-aos="fade-up" data-aos-delay="300">
+                <div class="news-dot news-dot-green"></div>
+                <div class="news-card news-card-logo">
+                    <div class="news-icon-wrap news-icon-green"><i class="fas fa-award"></i></div>
+                    <div class="news-card-info">
+                        <span class="news-stage news-stage-green">Certified</span>
+                        <h3>Certificates in Data Science &amp; Machine Learning</h3>
+                        <p class="news-desc">Completed Python for Data Science (Coursera) and Machine Learning Fundamentals (Google), plus certificates from the DIU Code Trap Programming Contest, DIU Science Olympiad, and Object-Oriented Programming in Java.</p>
+                        <p class="news-meta"><i class="fas fa-calendar"></i> 2025 – 2026</p>
+                    </div>
+                </div>
+            </div>
+            <div class="news-item" data-aos="fade-up" data-aos-delay="400">
+                <div class="news-dot news-dot-blue"></div>
+                <div class="news-card news-card-logo">
+                    <div class="news-icon-wrap news-icon-blue"><i class="fas fa-graduation-cap"></i></div>
+                    <div class="news-card-info">
+                        <span class="news-stage news-stage-blue">Milestone</span>
+                        <h3>Currently 6 of 12 semesters into BSc SWE</h3>
+                        <p class="news-desc">Pursuing my Software Engineering degree at Daffodil International University since 2024, holding a 3.70 CGPA so far.</p>
+                        <p class="news-meta"><i class="fas fa-calendar"></i> Daffodil International University</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="expertise" class="section expertise-section">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <span class="expertise-kicker">My Credentials</span>
+            <h2>Expertise &amp; Journey</h2>
+        </div>
+        <div class="expertise-layout" data-aos="fade-up">
+            <div class="expertise-sidebar">
+                <span class="expertise-sidebar-kicker"><i class="fas fa-bookmark"></i> My Journey</span>
+                <div class="expertise-nav" role="tablist" aria-label="Expertise sections">
+                <div class="dropdown expertise-nav-item-group">
+                    <button type="button" class="expertise-nav-item active" data-tab="why-me" role="tab" aria-selected="true" aria-controls="expertise-panel-why-me" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-star"></i> Why Me
+                        <i class="fas fa-chevron-down expertise-nav-caret"></i>
+                    </button>
+                    <ul class="dropdown-menu expertise-nav-dropdown-menu" aria-label="Skills and Experience">
+                        <li><button type="button" class="dropdown-item expertise-nav-item" data-tab="skills" role="tab" aria-selected="false" aria-controls="expertise-panel-skills"><i class="fas fa-layer-group"></i> Skills</button></li>
+                        <li><button type="button" class="dropdown-item expertise-nav-item" data-tab="experience" role="tab" aria-selected="false" aria-controls="expertise-panel-experience"><i class="fas fa-briefcase"></i> Experience</button></li>
+                    </ul>
+                </div>
+                <button type="button" class="expertise-nav-item" data-tab="education" role="tab" aria-selected="false" aria-controls="expertise-panel-education">
+                    <i class="fas fa-graduation-cap"></i> Education
+                </button>
+                <button type="button" class="expertise-nav-item" data-tab="certificates" role="tab" aria-selected="false" aria-controls="expertise-panel-certificates">
+                    <i class="fas fa-award"></i> Certificates
+                </button>
+                <button type="button" class="expertise-nav-item" data-tab="achievements" role="tab" aria-selected="false" aria-controls="expertise-panel-achievements">
+                    <i class="fas fa-trophy"></i> Achievements
+                </button>
+                <button type="button" class="expertise-nav-item" data-tab="resume" role="tab" aria-selected="false" aria-controls="expertise-panel-resume">
+                    <i class="fas fa-file-lines"></i> Resume
+                </button>
+                </div>
+
+                <div class="academic-summary">
+                    <span class="expertise-sidebar-kicker">Academic Summary</span>
+                    <div class="academic-summary-cards">
+                        <div class="asum-card">
+                            <div class="asum-icon asum-icon-blue"><i class="fas fa-arrow-trend-up"></i></div>
+                            <div>
+                                <span class="asum-label">Overall CGPA</span>
+                                <span class="asum-value">3.70</span>
+                            </div>
+                        </div>
+                        <div class="asum-card">
+                            <div class="asum-icon asum-icon-green"><i class="fas fa-calendar-check"></i></div>
+                            <div>
+                                <span class="asum-label">Semesters Completed</span>
+                                <span class="asum-value">6 <small>out of 12</small></span>
+                            </div>
+                        </div>
+                        <div class="asum-card">
+                            <div class="asum-icon asum-icon-purple"><i class="fas fa-star"></i></div>
+                            <div>
+                                <span class="asum-label">Academic Standing</span>
+                                <span class="asum-value asum-value-purple">Excellent</span>
+                                <span class="asum-sublabel">Consistent Performance</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="assets/cv/Tamim_Munshi_CV.pdf" download="Tamim_Munshi_CV.pdf" class="asum-download-btn cv-download-link"><i class="fas fa-download"></i> Download Resume <i class="fas fa-chevron-right asum-chevron"></i></a>
+                </div>
+            </div>
+
+            <div class="expertise-panel">
+                <div class="expertise-tab active" id="expertise-panel-why-me" data-tab-panel="why-me">
+                    <div class="expertise-tab-header">
+                        <div class="expertise-tab-title-row">
+                            <div class="expertise-tab-icon"><i class="fas fa-star"></i></div>
+                            <div>
+                                <h3>Why Work With Me</h3>
+                                <p class="expertise-tab-subtext">What I bring to every build</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="expertise-tab-body">
+                        <div class="row g-4">
+                            <div class="col-md-6 col-lg-3" data-aos="fade-up">
+                                <div class="why-card">
+                                    <div class="why-card-icon"><i class="fas fa-code"></i></div>
+                                    <h4>Clean, Maintainable Code</h4>
+                                    <p>I structure code to be readable and easy to extend, following consistent conventions across every project.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                                <div class="why-card">
+                                    <div class="why-card-icon"><i class="fas fa-graduation-cap"></i></div>
+                                    <h4>Continuous Learning</h4>
+                                    <p>I stay current through formal Software Engineering coursework and independent study of new tools and practices.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                                <div class="why-card">
+                                    <div class="why-card-icon"><i class="fas fa-layer-group"></i></div>
+                                    <h4>System-Level Thinking</h4>
+                                    <p>I approach each build end-to-end — from database schema and application logic through to interface design.</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                                <div class="why-card">
+                                    <div class="why-card-icon"><i class="fas fa-comments"></i></div>
+                                    <h4>Clear Communication</h4>
+                                    <p>I keep progress visible and raise questions early, ensuring alignment throughout the project timeline.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="why-ai-banner" data-aos="fade-up" data-aos-delay="400">
+                            <div class="why-ai-banner-glow" aria-hidden="true"></div>
+                            <div class="why-ai-banner-icon">
+                                <svg viewBox="0 0 24 24" fill="none"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3z" fill="currentColor"/></svg>
+                            </div>
+                            <div class="why-ai-banner-text">
+                                <span class="why-ai-banner-tag">Try it yourself</span>
+                                <h4>Explore my work through my AI Portfolio Assistant</h4>
+                                <p>Instead of scrolling through everything, just ask. It answers instantly from my real skills, projects, resume, and contact details — no guesswork, no fluff.</p>
+                            </div>
+                            <button type="button" class="why-ai-banner-btn" data-open-ai-chat>
+                                <span>Chat Now</span>
+                                <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="expertise-tab" id="expertise-panel-skills" data-tab-panel="skills" hidden>
+                    <div class="expertise-tab-header">
+                        <div class="expertise-tab-title-row">
+                            <div class="expertise-tab-icon"><i class="fas fa-layer-group"></i></div>
+                            <div>
+                                <h3>My Skills</h3>
+                                <p class="expertise-tab-subtext">Technologies I work with</p>
+                            </div>
+                        </div>
+                        <img src="assets/images/badge-skills.svg" alt="" class="expertise-tab-badge" width="96" height="96" loading="lazy" decoding="async">
+                    </div>
+                    <div class="expertise-tab-body">
+                        <div class="skill-category" data-aos="fade-up">
+            <h4 class="skill-category-title"><span class="skill-title-icon"><i class="fas fa-code"></i></span><span>Programming Languages</span><span class="skill-title-line"></span><span class="skill-title-dot"></span></h4>
+            <div class="skill-ring-grid">
+                <div class="skill-ring-card" data-percent="90" style="--brand:#ED8B00">
+                    <svg class="skill-ring" viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg>
+                    <div class="skill-ring-label"><span class="skill-badge"><i class="fab fa-java"></i></span><span class="skill-ring-value">0%</span></div>
+                    <p>Java</p>
+                    <span class="skill-caption">Object-oriented programming</span>
+                </div>
+                <div class="skill-ring-card" data-percent="85" style="--brand:#3776AB">
+                    <svg class="skill-ring" viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg>
+                    <div class="skill-ring-label"><span class="skill-badge"><i class="fab fa-python"></i></span><span class="skill-ring-value">0%</span></div>
+                    <p>Python</p>
+                    <span class="skill-caption">AI, ML &amp; general-purpose scripting</span>
+                </div>
+                <div class="skill-ring-card" data-percent="80" style="--brand:#F0DB4F">
+                    <svg class="skill-ring" viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg>
+                    <div class="skill-ring-label"><span class="skill-badge is-light"><i class="fab fa-js"></i></span><span class="skill-ring-value">0%</span></div>
+                    <p>JavaScript</p>
+                    <span class="skill-caption">Interactive &amp; dynamic experiences</span>
+                </div>
+                <div class="skill-ring-card" data-percent="85" style="--brand:#3178C6">
+                    <svg class="skill-ring" viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg>
+                    <div class="skill-ring-label"><span class="skill-badge"><i class="fas fa-code"></i></span><span class="skill-ring-value">0%</span></div>
+                    <p>C</p>
+                    <span class="skill-caption">Structured programming</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-category" data-aos="fade-up">
+            <h4 class="skill-category-title"><span class="skill-title-icon"><i class="fas fa-laptop-code"></i></span><span>Web Development</span><span class="skill-title-line"></span><span class="skill-title-dot"></span></h4>
+            <div class="skill-ring-grid">
+                <div class="skill-ring-card" data-percent="95" style="--brand:#E44D26">
+                    <svg class="skill-ring" viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg>
+                    <div class="skill-ring-label"><span class="skill-badge"><i class="fab fa-html5"></i></span><span class="skill-ring-value">0%</span></div>
+                    <p>HTML</p>
+                    <span class="skill-caption">Semantic markup &amp; modern structure</span>
+                </div>
+                <div class="skill-ring-card" data-percent="92" style="--brand:#2965F1">
+                    <svg class="skill-ring" viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg>
+                    <div class="skill-ring-label"><span class="skill-badge"><i class="fab fa-css3-alt"></i></span><span class="skill-ring-value">0%</span></div>
+                    <p>CSS</p>
+                    <span class="skill-caption">Responsive design &amp; clean UI</span>
+                </div>
+                <div class="skill-ring-card" data-percent="90" style="--brand:#FFC93C">
+                    <svg class="skill-ring" viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg>
+                    <div class="skill-ring-label"><span class="skill-badge"><i class="fas fa-mobile-screen"></i></span><span class="skill-ring-value">0%</span></div>
+                    <p>Responsive Design</p>
+                    <span class="skill-caption">Looks right on every screen size</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-category" data-aos="fade-up">
+            <h4 class="skill-category-title"><span class="skill-title-icon"><i class="fas fa-database"></i></span><span>Database</span><span class="skill-title-line"></span><span class="skill-title-dot"></span></h4>
+            <div class="skill-ring-grid">
+                <div class="skill-ring-card" data-percent="88" style="--brand:#1E6FD9">
+                    <svg class="skill-ring" viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg>
+                    <div class="skill-ring-label"><span class="skill-badge"><i class="fas fa-database"></i></span><span class="skill-ring-value">0%</span></div>
+                    <p>MySQL</p>
+                    <span class="skill-caption">Database management</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="skill-category" data-aos="fade-up">
+            <h4 class="skill-category-title"><span class="skill-title-icon"><i class="fas fa-brain"></i></span><span>AI &amp; Data Science</span><span class="skill-title-line"></span><span class="skill-title-dot"></span></h4>
+            <div class="skill-ring-grid">
+                <div class="skill-ring-card" data-percent="75" style="--brand:#A855F7">
+                    <svg class="skill-ring" viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg>
+                    <div class="skill-ring-label"><span class="skill-badge"><i class="fas fa-robot"></i></span><span class="skill-ring-value">0%</span></div>
+                    <p>Machine Learning</p>
+                    <span class="skill-caption">Models that learn from data</span>
+                </div>
+                <div class="skill-ring-card" data-percent="75" style="--brand:#0EA5E9">
+                    <svg class="skill-ring" viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg>
+                    <div class="skill-ring-label"><span class="skill-badge"><i class="fas fa-chart-line"></i></span><span class="skill-ring-value">0%</span></div>
+                    <p>Data Science</p>
+                    <span class="skill-caption">Turning data into insight</span>
+                </div>
+                <div class="skill-ring-card" data-percent="80" style="--brand:#150458">
+                    <svg class="skill-ring" viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg>
+                    <div class="skill-ring-label"><span class="skill-badge is-light"><i class="fas fa-table"></i></span><span class="skill-ring-value">0%</span></div>
+                    <p>Pandas</p>
+                    <span class="skill-caption">Data wrangling &amp; analysis</span>
+                </div>
+                <div class="skill-ring-card" data-percent="80" style="--brand:#4D77CF">
+                    <svg class="skill-ring" viewBox="0 0 120 120"><circle class="ring-track" cx="60" cy="60" r="52"/><circle class="ring-fill" cx="60" cy="60" r="52"/></svg>
+                    <div class="skill-ring-label"><span class="skill-badge"><i class="fas fa-square-root-variable"></i></span><span class="skill-ring-value">0%</span></div>
+                    <p>NumPy</p>
+                    <span class="skill-caption">Numerical computing</span>
+                </div>
+            </div>
+        </div>
+                    </div>
+                </div>
+                <div class="expertise-tab" id="expertise-panel-experience" data-tab-panel="experience" hidden>
+                    <div class="expertise-tab-header">
+                        <div class="expertise-tab-title-row">
+                            <div class="expertise-tab-icon"><i class="fas fa-briefcase"></i></div>
+                            <div>
+                                <h3>Experience</h3>
+                                <p class="expertise-tab-subtext">Where the hands-on learning has actually happened</p>
+                            </div>
+                        </div>
+                        <img src="assets/images/badge-experience.svg" alt="" class="expertise-tab-badge" width="96" height="96" loading="lazy" decoding="async">
+                    </div>
+                    <div class="expertise-tab-body">
+                        <div class="timeline timeline-horizontal">
+            <div class="timeline-item" data-aos="fade-up">
+                <div class="timeline-icon"><i class="fas fa-graduation-cap"></i></div>
+                <span class="timeline-tag">2024 — Present</span>
+                <h4>Software Engineering Student, DIU</h4>
+                <p>Studying Software Engineering with a focus on AI, Machine Learning, Data Science, Web Development and Software Engineering principles.</p>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="timeline-icon"><i class="fas fa-users"></i></div>
+                <span class="timeline-tag">2025 — Present</span>
+                <h4>Executive Member, DIU Software Engineering Club</h4>
+                <p>Participating in technical events, workshops, hackathons and collaborative software development activities.</p>
+            </div>
+            <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="timeline-icon"><i class="fas fa-brain"></i></div>
+                <span class="timeline-tag">2025 — Present</span>
+                <h4>AI &amp; Machine Learning Learner</h4>
+                <p>Learning Machine Learning, Deep Learning, Python, Data Science and Computer Vision through practical projects.</p>
+            </div>
+        </div>
+                    </div>
+                </div>
+                <div class="expertise-tab" id="expertise-panel-education" data-tab-panel="education" hidden>
+                    <div class="expertise-tab-header">
+                        <div class="expertise-tab-title-row">
+                            <div class="expertise-tab-icon"><i class="fas fa-graduation-cap"></i></div>
+                            <div>
+                                <h3>Education &amp; Credentials</h3>
+                                <p class="expertise-tab-subtext">Academic foundations in Software Engineering at Daffodil International University</p>
+                            </div>
+                        </div>
+                        <img src="assets/images/badge-education.svg" alt="" class="expertise-tab-badge" width="96" height="96" loading="lazy" decoding="async">
+                    </div>
+                    <div class="expertise-tab-body">
+                        <div class="edu-stats-row">
+                            <div class="edu-stat-card edu-stat-card-highlight">
+                                <div class="edu-stat-icon edu-stat-icon-trend"><i class="fas fa-chart-line"></i></div>
+                                <div>
+                                    <span class="edu-stat-label">Current CGPA</span>
+                                    <span class="edu-stat-value edu-stat-value-mint">3.70</span>
+                                    <span class="edu-stat-pill edu-stat-pill-mint">Out of 4.00</span>
+                                </div>
+                            </div>
+                            <div class="edu-stat-card">
+                                <div class="edu-stat-icon edu-stat-icon-calendar"><i class="fas fa-calendar-days"></i></div>
+                                <div>
+                                    <span class="edu-stat-label">Semesters Completed</span>
+                                    <span class="edu-stat-value">5</span>
+                                    <span class="edu-stat-pill">out of 12</span>
+                                </div>
+                            </div>
+                            <div class="edu-stat-card">
+                                <div class="edu-stat-icon edu-stat-icon-ribbon"><i class="fas fa-award"></i></div>
+                                <div>
+                                    <span class="edu-stat-label">HSC &amp; SSC Result</span>
+                                    <span class="edu-stat-value">5.00</span>
+                                    <span class="edu-stat-pill">GPA, Science Group</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="edu-timeline">
+            <div class="edu-item" data-aos="fade-up">
+                <div class="edu-dot edu-dot-blue"></div>
+                <div class="edu-card edu-card-logo">
+                    <div class="edu-logo-wrap"><img src="assets/images/diu-logo.png" alt="Daffodil International University logo" class="edu-logo" width="152" height="148" loading="lazy" decoding="async"></div>
+                    <div class="edu-card-info">
+                        <span class="edu-stage edu-stage-blue">University</span>
+                        <h3>Daffodil International University</h3>
+                        <p class="edu-course">B.Sc. in Software Engineering</p>
+                        <p class="edu-meta"><i class="fas fa-calendar"></i> 2024 – Present &nbsp; <i class="fas fa-location-dot"></i> Dhaka, Bangladesh</p>
+                    </div>
+                    <div class="edu-card-stat edu-card-stat-blue">
+                        <span class="edu-card-stat-label">CGPA</span>
+                        <span class="edu-card-stat-value">3.70</span>
+                        <span class="edu-card-stat-pill">Out of 4.00</span>
+                    </div>
+                </div>
+            </div>
+            <div class="edu-item" data-aos="fade-up" data-aos-delay="100">
+                <div class="edu-dot edu-dot-green"></div>
+                <div class="edu-card edu-card-logo">
+                    <div class="edu-logo-wrap edu-logo-icon"><i class="fas fa-school"></i></div>
+                    <div class="edu-card-info">
+                        <span class="edu-stage edu-stage-green">College</span>
+                        <h3>Uttara High School &amp; College</h3>
+                        <p class="edu-course">Higher Secondary Certificate (HSC)</p>
+                        <p class="edu-meta"><i class="fas fa-calendar"></i> 2020 – 2022</p>
+                    </div>
+                    <div class="edu-card-stat">
+                        <span class="edu-card-stat-label">Result</span>
+                        <span class="edu-card-stat-value">5.00</span>
+                        <span class="edu-card-stat-pill">Science Group</span>
+                    </div>
+                </div>
+            </div>
+            <div class="edu-item" data-aos="fade-up" data-aos-delay="200">
+                <div class="edu-dot edu-dot-green"></div>
+                <div class="edu-card edu-card-logo">
+                    <div class="edu-logo-wrap edu-logo-icon"><i class="fas fa-school"></i></div>
+                    <div class="edu-card-info">
+                        <span class="edu-stage edu-stage-green">School</span>
+                        <h3>Uttara High School &amp; College</h3>
+                        <p class="edu-course">Secondary School Certificate (SSC)</p>
+                        <p class="edu-meta"><i class="fas fa-calendar"></i> 2018 – 2020</p>
+                    </div>
+                    <div class="edu-card-stat">
+                        <span class="edu-card-stat-label">Result</span>
+                        <span class="edu-card-stat-value">5.00</span>
+                        <span class="edu-card-stat-pill">Science Group</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="edu-results" data-aos="fade-up">
+            <div class="edu-results-heading">
+                <div class="edu-results-icon"><i class="fas fa-chart-line"></i></div>
+                <h4>Academic Performance Overview</h4>
+                <p>Semester-wise CGPA Trend</p>
+            </div>
+            <img src="assets/images/semester-cgpa-chart.jpg" alt="Semester-wise CGPA chart: Fall 2024 3.48, Spring 2025 3.88, Summer 2025 3.77, Fall 2025 3.62, Spring 2026 4.00" class="cgpa-chart-img" style="width:100%;height:auto;border-radius:14px;margin-top:16px;">
+        </div>
+                    </div>
+                </div>
+                <div class="expertise-tab" id="expertise-panel-certificates" data-tab-panel="certificates" hidden>
+                    <div class="expertise-tab-header">
+                        <div class="expertise-tab-title-row">
+                            <div class="expertise-tab-icon"><i class="fas fa-award"></i></div>
+                            <div>
+                                <h3>Certificates</h3>
+                                <p class="expertise-tab-subtext">Credentials earned alongside coursework</p>
+                            </div>
+                        </div>
+                        <img src="assets/images/badge-education.svg" alt="" class="expertise-tab-badge" width="96" height="96" loading="lazy" decoding="async">
+                    </div>
+                    <div class="expertise-tab-body">
+        <div class="edu-certificates" data-aos="fade-up">
+            <p class="cert-hint"><i class="fas fa-magnifying-glass-plus"></i> Click a certificate to view it full size</p>
+            <div class="cert-grid">
+                <div class="certificate-card" data-cert-img="assets/images/cert-code-trap.png" data-cert-title="DIU Code Trap Programming Contest" tabindex="0" role="button" aria-label="View DIU Code Trap Programming Contest certificate" data-aos="fade-up">
+                    <div class="cert-preview">
+                        <img src="assets/images/cert-code-trap.png" alt="DIU Code Trap Programming Contest certificate" loading="lazy" decoding="async">
+                        <span class="cert-type-badge cert-type-badge-contest"><i class="fas fa-trophy"></i> Contest</span>
+                        <button type="button" class="cert-view-btn" aria-label="View certificate full size"><i class="fas fa-expand"></i></button>
+                        <div class="cert-overlay"><i class="fas fa-magnifying-glass-plus"></i><span>Click to view full size</span></div>
+                    </div>
+                    <div class="cert-card-body">
+                        <h4>DIU Code Trap Programming Contest</h4>
+                        <p>Participation certificate — DIU Software Engineering Club, Spring 2025.</p>
+                        <span class="cert-issuer"><i class="fas fa-calendar"></i> Spring 2025</span>
+                    </div>
+                </div>
+                <div class="certificate-card" data-cert-img="assets/images/cert-science-olympiad.png" data-cert-title="DIU Science Olympiad — Fall 2024" tabindex="0" role="button" aria-label="View DIU Science Olympiad certificate" data-aos="fade-up" data-aos-delay="100">
+                    <div class="cert-preview">
+                        <img src="assets/images/cert-science-olympiad.png" alt="DIU Science Olympiad Fall 2024 certificate" loading="lazy" decoding="async">
+                        <span class="cert-type-badge cert-type-badge-contest"><i class="fas fa-trophy"></i> Olympiad</span>
+                        <button type="button" class="cert-view-btn" aria-label="View certificate full size"><i class="fas fa-expand"></i></button>
+                        <div class="cert-overlay"><i class="fas fa-magnifying-glass-plus"></i><span>Click to view full size</span></div>
+                    </div>
+                    <div class="cert-card-body">
+                        <h4>DIU Science Olympiad — Fall 2024</h4>
+                        <p>Participation certificate — Faculty of Science &amp; Information Technology, 28 November 2024.</p>
+                        <span class="cert-issuer"><i class="fas fa-building-columns"></i> Daffodil International University</span>
+                    </div>
+                </div>
+                <div class="certificate-card" data-cert-img="assets/images/cert-oop-java.png" data-cert-title="Object-Oriented Programming in Java" tabindex="0" role="button" aria-label="View Object-Oriented Programming in Java certificate" data-aos="fade-up" data-aos-delay="200">
+                    <div class="cert-preview">
+                        <img src="assets/images/cert-oop-java.png" alt="Object-Oriented Programming in Java certificate" loading="lazy" decoding="async">
+                        <span class="cert-type-badge"><i class="fas fa-certificate"></i> Certification</span>
+                        <button type="button" class="cert-view-btn" aria-label="View certificate full size"><i class="fas fa-expand"></i></button>
+                        <div class="cert-overlay"><i class="fas fa-magnifying-glass-plus"></i><span>Click to view full size</span></div>
+                    </div>
+                    <div class="cert-card-body">
+                        <h4>Object-Oriented Programming in Java</h4>
+                        <p>Completed 30th March 2026.</p>
+                        <span class="cert-issuer"><i class="fas fa-calendar"></i> 30 March 2026</span>
+                    </div>
+                </div>
+                <div class="certificate-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="cert-preview">
+                        <i class="fas fa-robot"></i>
+                        <span class="cert-type-badge cert-type-badge-contest"><i class="fas fa-trophy"></i> Hackathon</span>
+                    </div>
+                    <div class="cert-card-body">
+                        <h4>AI Innovation Hackathon 2026</h4>
+                        <p>Participation certificate — Daffodil International University, July 2026.</p>
+                        <span class="cert-issuer"><i class="fas fa-building-columns"></i> Daffodil International University</span>
+                    </div>
+                </div>
+                <div class="certificate-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="cert-preview">
+                        <i class="fas fa-chart-line"></i>
+                        <span class="cert-type-badge"><i class="fas fa-certificate"></i> Certification</span>
+                    </div>
+                    <div class="cert-card-body">
+                        <h4>Python for Data Science</h4>
+                        <p>Coursera — completed 2025.</p>
+                        <span class="cert-issuer"><i class="fas fa-building-columns"></i> Coursera</span>
+                    </div>
+                </div>
+                <div class="certificate-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="cert-preview">
+                        <i class="fas fa-brain"></i>
+                        <span class="cert-type-badge"><i class="fas fa-certificate"></i> Certification</span>
+                    </div>
+                    <div class="cert-card-body">
+                        <h4>Machine Learning Fundamentals</h4>
+                        <p>Google — completed 2025.</p>
+                        <span class="cert-issuer"><i class="fas fa-building-columns"></i> Google</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    </div>
+                </div>
+                <div class="expertise-tab" id="expertise-panel-achievements" data-tab-panel="achievements" hidden>
+                    <div class="expertise-tab-header">
+                        <div class="expertise-tab-title-row">
+                            <div class="expertise-tab-icon"><i class="fas fa-award"></i></div>
+                            <div>
+                                <h3>Achievements</h3>
+                                <p class="expertise-tab-subtext">Markers of progress along the way</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="expertise-tab-body">
+                        <div class="row g-4">
+            <div class="col-sm-6" data-aos="fade-up">
+                <div class="achievement-card">
+                    <span class="achievement-rank">01</span>
+                    <span class="badge-earned-tag"><i class="fas fa-check-circle"></i> Unlocked</span>
+                    <div class="achievement-icon"><i class="fas fa-users"></i></div>
+                    <h4>Executive Member</h4>
+                    <p>Executive Member of the DIU Software Engineering Club, 2026.</p>
+                </div>
+            </div>
+            <div class="col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="achievement-card">
+                    <span class="achievement-rank">02</span>
+                    <span class="badge-earned-tag"><i class="fas fa-check-circle"></i> Unlocked</span>
+                    <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
+                    <h4>AI Innovation Hackathon Participant</h4>
+                    <p>Participated in the AI Innovation Hackathon at Daffodil International University, 2026.</p>
+                </div>
+            </div>
+            <div class="col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="achievement-card">
+                    <span class="achievement-rank">03</span>
+                    <span class="badge-earned-tag"><i class="fas fa-check-circle"></i> Unlocked</span>
+                    <div class="achievement-icon"><i class="fas fa-atom"></i></div>
+                    <h4>DIU Science Olympiad Participant</h4>
+                    <p>Participated in DIU Science Olympiad — Fall 2024, Faculty of Science &amp; Information Technology.</p>
+                </div>
+            </div>
+            <div class="col-sm-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="achievement-card">
+                    <span class="achievement-rank">04</span>
+                    <span class="badge-earned-tag"><i class="fas fa-check-circle"></i> Unlocked</span>
+                    <div class="achievement-icon"><i class="fas fa-brain"></i></div>
+                    <h4>Machine Learning Learner</h4>
+                    <p>Self-taught progress in Machine Learning through independent study and projects, 2025.</p>
+                </div>
+            </div>
+            <div class="col-sm-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="achievement-card">
+                    <span class="achievement-rank">05</span>
+                    <span class="badge-earned-tag"><i class="fas fa-check-circle"></i> Unlocked</span>
+                    <div class="achievement-icon"><i class="fas fa-code"></i></div>
+                    <h4>Code Trap Programming Contest</h4>
+                    <p>Participated in the DIU Code Trap Programming Contest, Spring 2025.</p>
+                </div>
+            </div>
+        </div>
+                    </div>
+                </div>
+                <div class="expertise-tab" id="expertise-panel-resume" data-tab-panel="resume" hidden>
+                    <h3>Resume &amp; CV</h3>
+                    <p class="expertise-tab-subtext">The full picture, in one PDF</p>
+                    <div class="expertise-tab-body">
+                        <div class="cv-highlight-card">
+                            <div class="cv-highlight-icon"><i class="fas fa-file-arrow-down"></i></div>
+                            <div class="cv-highlight-text">
+                                <h4>Want the full picture?</h4>
+                                <p>Grab a copy of my complete resume — education, skills, and project history in one PDF.</p>
+                            </div>
+                            <div class="cv-highlight-actions">
+                                <a href="assets/cv/Tamim_Munshi_CV.pdf" download="Tamim_Munshi_CV.pdf" class="btn btn-primary btn-ripple magnetic cv-download-btn">
+                                    <i class="fas fa-download"></i> Download CV
+                                </a>
+                                <button type="button" class="btn btn-outline-light btn-ripple magnetic" data-bs-toggle="modal" data-bs-target="#resumeModal">
+                                    <i class="fas fa-eye"></i> Preview
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="section">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Featured Projects</h2>
+        </div>
+        <div class="project-search-wrap" data-aos="fade-up">
+            <i class="fas fa-magnifying-glass"></i>
+            <input type="search" id="projectSearch" class="project-search" placeholder="Search featured projects…" aria-label="Search featured projects">
+        </div>
+        <div class="project-filters" role="tablist" aria-label="Filter projects by category" data-aos="fade-up">
+            <button type="button" class="filter-btn active" data-filter="all" role="tab" aria-selected="true">All</button>
+            <button type="button" class="filter-btn" data-filter="fullstack" role="tab" aria-selected="false">Full-Stack</button>
+            <button type="button" class="filter-btn" data-filter="frontend" role="tab" aria-selected="false">Frontend</button>
+            <button type="button" class="filter-btn" data-filter="javascript" role="tab" aria-selected="false">JavaScript</button>
+        </div>
+        <div class="row g-4" id="projectsGrid">
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-category="fullstack" data-gh-owner="Tamim-Munshi" data-gh-repo="AI-Marketplace-Platform">
+                <div class="project-card">
+                    <div class="project-thumb project-thumb-healthcare">
+                        <span class="project-thumb-tag">AI + Web</span>
+                        <div class="project-featured-ribbon"><i class="fas fa-star"></i> Featured</div>
+                        <div class="project-thumb-badge"><i class="fas fa-robot"></i></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>AI Marketplace Platform</h3>
+                        <p>
+                            An AI-powered marketplace that detects product condition, suggests
+                            categories, and recommends prices using Machine Learning.
+                        </p>
+                        <div class="project-meta">
+                            <span class="project-status">Personal Project</span>
+                        </div>
+                        <div class="tech">
+                            <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Flask</span>
+                        </div>
+                        <div class="gh-stats" aria-live="polite"><span class="gh-loading">Loading GitHub stats…</span></div>
+                        <div class="project-buttons">
+                            <a href="https://github.com/Tamim-Munshi" target="_blank" rel="noopener" class="btn btn-primary btn-ripple">GitHub</a>
+                            <button type="button" class="btn btn-outline-light btn-ripple" data-bs-toggle="modal" data-bs-target="#caseStudyModal">Case Study</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="80" data-category="fullstack javascript" data-gh-owner="Tamim-Munshi" data-gh-repo="Student-Management-System">
+                <div class="project-card">
+                    <div class="project-thumb project-thumb-guess">
+                        <span class="project-thumb-tag">Java</span>
+                        <div class="project-thumb-badge"><i class="fas fa-user-graduate"></i></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Student Management System</h3>
+                        <p>
+                            Desktop application for managing student information, attendance,
+                            and academic records.
+                        </p>
+                        <div class="project-meta">
+                            <span class="project-status">Academic Project</span>
+                        </div>
+                        <div class="tech">
+                            <span>Java</span><span>MySQL</span>
+                        </div>
+                        <div class="gh-stats" aria-live="polite"><span class="gh-loading">Loading GitHub stats…</span></div>
+                        <div class="project-buttons">
+                            <a href="https://github.com/Tamim-Munshi" target="_blank" rel="noopener" class="btn btn-primary btn-ripple">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="160" data-category="frontend javascript" data-gh-owner="Tamim-Munshi" data-gh-repo="Portfolio-Website">
+                <div class="project-card">
+                    <div class="project-thumb project-thumb-weather">
+                        <span class="project-thumb-tag">Frontend</span>
+                        <div class="project-thumb-badge"><i class="fas fa-globe"></i></div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Portfolio Website</h3>
+                        <p>
+                            A modern portfolio website built with HTML, CSS and JavaScript
+                            using modular architecture.
+                        </p>
+                        <div class="project-meta">
+                            <span class="project-status project-status-live"><i class="fas fa-circle"></i> Live</span>
+                        </div>
+                        <div class="tech">
+                            <span>HTML</span><span>CSS</span><span>JavaScript</span>
+                        </div>
+                        <div class="gh-stats" aria-live="polite"><span class="gh-loading">Loading GitHub stats…</span></div>
+                        <div class="project-buttons">
+                            <a href="https://github.com/Tamim-Munshi" target="_blank" rel="noopener" class="btn btn-primary btn-ripple">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+
+
+
+
+<section id="github" class="section">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>GitHub Activity</h2>
+            <p class="subtext">Real-time stats pulled from my GitHub profile</p>
+        </div>
+        <div class="github-dashboard" data-aos="fade-up">
+            <div class="github-stats-grid" id="githubStats">
+                <div class="github-stat-card">
+                    <i class="fas fa-code-branch"></i>
+                    <strong id="ghRepos">—</strong>
+                    <span>Public Repos</span>
+                </div>
+                <div class="github-stat-card">
+                    <i class="fas fa-users"></i>
+                    <strong id="ghFollowers">—</strong>
+                    <span>Followers</span>
+                </div>
+                <div class="github-stat-card">
+                    <i class="fas fa-star"></i>
+                    <strong id="ghStars">—</strong>
+                    <span>Total Stars</span>
+                </div>
+                <div class="github-stat-card">
+                    <i class="fas fa-code"></i>
+                    <strong id="ghLanguage">—</strong>
+                    <span>Top Language</span>
+                </div>
+            </div>
+            <div class="github-graph-wrap">
+                <img id="ghContribGraph" src="https://ghchart.rshah.org/FFC93C/Tamim-Munshi" alt="Mohammad Tamim Munshi Mubashir GitHub contribution graph" loading="lazy" class="github-graph">
+            </div>
+            <p class="github-note" id="githubNote">Loading live GitHub data…</p>
+            <a href="https://github.com/Tamim-Munshi" target="_blank" rel="noopener" class="btn btn-primary btn-ripple magnetic"><i class="fab fa-github"></i> View Full GitHub Profile</a>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="contact" class="section">
+    <div class="container">
+        <div class="section-title" data-aos="fade-up">
+            <h2>Contact Me</h2>
+            <p class="subtext">Let's work together</p>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-5" data-aos="fade-right">
+                <div class="contact-card">
+                    <img src="assets/images/profile.jpg" alt="Mohammad Tamim Munshi Mubashir" width="760" height="1013" loading="lazy" decoding="async">
+                    <h3>Mohammad Tamim Munshi Mubashir</h3>
+                    <p class="role">Software Engineering Student · Aspiring AI Engineer</p>
+                    <hr>
+                    <p><i class="fas fa-location-dot"></i> Dhaka, Bangladesh</p>
+                    <p><i class="fas fa-phone"></i> +880 1997-421522</p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:tamimmunshi262@gmail.com">tamimmunshi262@gmail.com</a></p>
+                </div>
+            </div>
+            <div class="col-lg-7" data-aos="fade-left">
+                <form id="contactForm" novalidate>
+                    <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="floating-field">
+                                <input type="text" id="ctName" name="name" placeholder=" " required class="form-control" autocomplete="name">
+                                <label for="ctName">Your Name</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="floating-field">
+                                <input type="email" id="ctEmail" name="email" placeholder=" " required class="form-control" autocomplete="email">
+                                <label for="ctEmail">Email</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="floating-field mt-3">
+                        <input type="text" id="ctSubject" name="subject" placeholder=" " required class="form-control">
+                        <label for="ctSubject">Subject</label>
+                    </div>
+                    <div class="floating-field mt-3">
+                        <textarea id="ctMessage" name="message" rows="6" placeholder=" " required class="form-control"></textarea>
+                        <label for="ctMessage">Write your message...</label>
+                    </div>
+                    <div class="contact-form-actions mt-3">
+                        <button type="submit" class="btn btn-primary btn-ripple magnetic">
+                            <span class="btn-label">Send Message</span>
+                            <span class="btn-spinner" aria-hidden="true"></span>
+                        </button>
+                        <a href="https://wa.me/8801997421522" target="_blank" rel="noopener" class="btn btn-outline-light btn-ripple magnetic">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a>
+                    </div>
+                    <p class="form-status" role="status" aria-live="polite"></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-top">
+            <div class="footer-col footer-col-brand">
+                <h3><img src="assets/images/logo.svg" alt="" class="footer-brand-mark" width="28" height="28" loading="lazy" decoding="async">Tamim Munshi</h3>
+                <p class="footer-role">Software Engineering Student</p>
+                <p class="footer-desc">Building with code, curious about AI</p>
+                <div class="footer-social-links">
+                    <a href="https://github.com/Tamim-Munshi" target="_blank" rel="noopener" aria-label="GitHub" class="social-gh"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/tamim-munshi-a33536306" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-li"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="mailto:tamimmunshi262@gmail.com" aria-label="Email" class="social-mail"><i class="fas fa-envelope"></i></a>
+                    <a href="https://www.facebook.com/tamim.munshi.169536" target="_blank" rel="noopener" aria-label="Facebook" class="social-fb"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/tamimmunshi262/" target="_blank" rel="noopener" aria-label="Instagram" class="social-ig"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <span class="footer-col-title">Get in Touch</span>
+                <ul class="footer-contact-list">
+                    <li><i class="fas fa-envelope"></i><a href="mailto:tamimmunshi262@gmail.com">tamimmunshi262@gmail.com</a></li>
+                    <li><i class="fas fa-phone"></i><a href="tel:+8801997421522">+880 1997-421522</a></li>
+                    <li><i class="fas fa-location-dot"></i><span>Dhaka, Bangladesh</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+            <p class="footer-bottom">© <span id="copyrightYear">2026</span> Mohammad Tamim Munshi Mubashir. All Rights Reserved.</p>
+            <div class="footer-meta">
+                <span class="footer-updated"><i class="fas fa-rotate"></i> Updated July 2026</span>
+                <span class="footer-meta-dot">•</span>
+                <span class="footer-visitors" id="visitorCount" aria-live="polite"><i class="fas fa-eye"></i> <span>Loading visitor count…</span></span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- AI Assistant chatbox v2 renders itself into the DOM from assets/js/ai-chat.js -->
+
+<button id="topBtn" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<div class="toast-box" id="toast" role="status" aria-live="polite">
+    <i class="fas fa-circle-check"></i>
+    <span id="toastMsg"></span>
+</div>
+
+<div class="modal fade glass-modal" id="resumeModal" tabindex="-1" aria-labelledby="resumeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="resumeModalLabel"><i class="fas fa-file-lines"></i> Resume — Mohammad Tamim Munshi Mubashir</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="resume-viewer">
+                    <iframe src="assets/cv/Tamim_Munshi_CV.pdf" title="Mohammad Tamim Munshi Mubashir Resume Preview" loading="lazy"></iframe>
+                    <p class="resume-fallback">
+                        If the preview doesn't load, the PDF may not be uploaded yet —
+                        <a href="assets/cv/Tamim_Munshi_CV.pdf" download="Tamim_Munshi_CV.pdf">download it directly</a> instead.
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="assets/cv/Tamim_Munshi_CV.pdf" download="Tamim_Munshi_CV.pdf" class="btn btn-primary btn-ripple"><i class="fas fa-download"></i> Download PDF</a>
+                <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade glass-modal" id="caseStudyModal" tabindex="-1" aria-labelledby="caseStudyModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="caseStudyModalLabel"><i class="fas fa-diagram-project"></i> Case Study — AI Marketplace Platform</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body case-study-body">
+                <svg viewBox="0 0 760 300" class="case-study-hero" width="760" height="300" role="img" aria-label="AI Marketplace Platform illustration" style="width:100%;height:auto;border-radius:14px;">
+                    <defs>
+                        <linearGradient id="csGrad" x1="0" y1="0" x2="1" y2="1">
+                            <stop offset="0%" stop-color="#1FBE85"/>
+                            <stop offset="100%" stop-color="#0d3b2c"/>
+                        </linearGradient>
+                    </defs>
+                    <rect width="760" height="300" rx="14" fill="url(#csGrad)"/>
+                    <circle cx="130" cy="150" r="70" fill="rgba(255,255,255,0.08)"/>
+                    <circle cx="640" cy="90" r="46" fill="rgba(255,255,255,0.07)"/>
+                    <text x="380" y="130" text-anchor="middle" font-family="'Space Grotesk',sans-serif" font-size="30" fill="#EAF2EE" font-weight="700">AI Marketplace Platform</text>
+                    <text x="380" y="168" text-anchor="middle" font-family="'Inter',sans-serif" font-size="16" fill="rgba(234,242,238,0.8)">Machine Learning · Flask · JavaScript</text>
+                </svg>
+
+                <h6>Overview</h6>
+                <p>An AI-powered marketplace concept that helps sellers list items faster — the model looks at a product listing, detects its condition, suggests the right category, and recommends a fair price using Machine Learning, instead of leaving all of that guesswork to the seller.</p>
+
+                <h6>My Role &amp; Contribution</h6>
+                <p>Built the front-end interface with HTML, CSS and JavaScript, and the Python/Flask backend that connects the listing form to the Machine Learning logic behind condition detection, category suggestion, and price recommendation.</p>
+
+                <h6>Architecture Summary</h6>
+                <ul>
+                    <li>HTML/CSS/JavaScript front-end for browsing and listing products</li>
+                    <li>Python + Flask backend serving the Machine Learning predictions</li>
+                    <li>Modules for condition detection, category suggestion, and price recommendation</li>
+                </ul>
+
+                <h6>Why It's Interesting</h6>
+                <p>It brings together the two sides I'm most drawn to — practical web development and applied Machine Learning — inside one working product rather than as two separate exercises.</p>
+
+                <h6>Status</h6>
+                <p>A personal project I'm actively building and refining as I go deeper into AI and Machine Learning.</p>
+
+                <div class="tech mt-3">
+                    <span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Flask</span>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="https://github.com/Tamim-Munshi" target="_blank" rel="noopener" class="btn btn-primary btn-ripple"><i class="fab fa-github"></i> View on GitHub</a>
+                <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cert-lightbox" id="certLightbox">
+    <button type="button" class="cert-lightbox-close" aria-label="Close preview"><i class="fas fa-xmark"></i></button>
+    <img src="" alt="Certificate full preview" id="certLightboxImg">
+</div>
+
+<div class="cmdk-overlay" id="cmdkOverlay" role="dialog" aria-modal="true" aria-label="Command palette">
+    <div class="cmdk-box" id="cmdkBox">
+        <div class="cmdk-input-row">
+            <i class="fas fa-magnifying-glass cmdk-input-icon"></i>
+            <input type="text" id="cmdkInput" class="cmdk-input" placeholder="Search projects, skills, sections, CV…" autocomplete="off" spellcheck="false">
+            <button type="button" class="cmdk-close" id="cmdkClose" aria-label="Close command palette"><kbd>Esc</kbd></button>
+        </div>
+        <div class="cmdk-results" id="cmdkResults"></div>
+        <div class="cmdk-footer">
+            <span><kbd>&uarr;</kbd><kbd>&darr;</kbd> Navigate</span>
+            <span><kbd>&crarr;</kbd> Select</span>
+            <span><kbd>Esc</kbd> Close</span>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+<script src="script.js" defer></script>
+<script src="assets/js/ai-chat.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<svg width="220" height="220" viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="expBadgeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34E4A0"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <linearGradient id="expIconGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#5EF2C0"/>
+      <stop offset="100%" stop-color="#3B82F6"/>
+    </linearGradient>
+    <filter id="expGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <circle cx="110" cy="110" r="88" fill="none" stroke="url(#expBadgeGrad)" stroke-width="1.4" stroke-dasharray="4 7" opacity="0.55"/>
+
+  <circle cx="184" cy="60" r="2.4" fill="#5EF2C0"/>
+  <circle cx="200" cy="86" r="1.6" fill="#5EF2C0" opacity="0.8"/>
+  <path d="M32 168 l3 8 l8 3 l-8 3 l-3 8 l-3 -8 l-8 -3 l8 -3 z" fill="#5EF2C0" opacity="0.85"/>
+
+  <rect x="46" y="46" width="128" height="128" rx="30" fill="#0E1614" stroke="url(#expBadgeGrad)" stroke-width="2" filter="url(#expGlow)"/>
+  <rect x="46" y="46" width="128" height="128" rx="30" fill="url(#expBadgeGrad)" opacity="0.06"/>
+
+  <g filter="url(#expGlow)">
+    <path d="M92 88 V80 C92 74 96 70 102 70 H118 C124 70 128 74 128 80 V88" fill="none" stroke="url(#expIconGrad)" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="66" y="88" width="88" height="60" rx="10" fill="#0E1614" stroke="url(#expIconGrad)" stroke-width="6"/>
+    <path d="M66 112 H154" stroke="url(#expIconGrad)" stroke-width="6"/>
+    <rect x="100" y="104" width="20" height="16" rx="4" fill="url(#expIconGrad)"/>
+  </g>
+</svg>
